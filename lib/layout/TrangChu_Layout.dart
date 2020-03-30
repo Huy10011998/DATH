@@ -67,13 +67,13 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                             new Container(
                                 padding: EdgeInsets.only(left: 5, top: 5),
                                 child: Text(
-                              myData[index]['noi_dung'],
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            )),
+                                  myData[index]['noi_dung'],
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                )),
                             Container(
-                              padding: EdgeInsets.only(top:5),
+                              padding: EdgeInsets.only(top: 5),
                               child: Row(
                                 children: <Widget>[
                                   Container(
