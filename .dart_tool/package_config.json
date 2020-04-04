@@ -20,6 +20,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "before_after",
+      "rootUri": "file:///Users/QuocHuy/development/flutter/.pub-cache/hosted/pub.dartlang.org/before_after-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///Users/QuocHuy/development/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-1.0.5",
       "packageUri": "lib/",
@@ -70,6 +76,12 @@
     {
       "name": "image",
       "rootUri": "file:///Users/QuocHuy/development/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "intl",
+      "rootUri": "file:///Users/QuocHuy/development/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.15.8",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -182,7 +194,7 @@
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-03-28T16:09:25.955915Z",
+  "generated": "2020-04-02T11:32:45.329762Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }

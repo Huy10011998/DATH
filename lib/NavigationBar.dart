@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test1/layout/TrangChu_Layout.dart';
+//import 'package:test1/layout/Chitiet_Layout_daxuly.dart';
 //import 'package:demo_trangchu/layout/Chitiet_Layout.dart';
 
 //import 'package:demo_trangchu/layout/Theodoi_Layout.dart';
-
-
 
 class NavigationBar extends StatefulWidget {
   @override
@@ -14,15 +13,17 @@ class NavigationBar extends StatefulWidget {
 class _NavigationBarState extends State<NavigationBar> {
   int navigation = 0;
 
-  // Widget selectedroute(int nav) {
-  //   switch (nav) {
-  //     case 0:
-  //       return TrangchuLayout();
-  //       break;
-  //     default:
-  //       return TrangchuLayout();
-  //   }
-  // }
+  Widget selectedroute(int nav) {
+    switch (nav) {
+      case 0:
+        return TrangchuLayout();
+        break;
+      // case 2:
+      //   return Chitiet();
+      default:
+        return TrangchuLayout();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,7 @@ class _NavigationBarState extends State<NavigationBar> {
           ],
         ),
       ),
-      body: TrangchuLayout(),
+      body: selectedroute(navigation),
       bottomNavigationBar: BottomNavigationBar(
         fixedColor: Colors.deepPurple,
         currentIndex: navigation,
@@ -114,4 +115,5 @@ class _NavigationBarState extends State<NavigationBar> {
     );
   }
 }
+
 ///aaaa
