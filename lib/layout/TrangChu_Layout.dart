@@ -1,9 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-// import 'package:loadmore/loadmore.dart';
-// import 'dart:async';
-
 import 'Chitiet_Layout_daxuly.dart';
 
 class TrangchuLayout extends StatefulWidget {
@@ -22,7 +19,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
   void initState() {
     super.initState();
 
-    myList = List.generate(2, (index) => "myData");
+    myList = List.generate(1, (index) => "myData");
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
@@ -45,6 +42,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
       }
       present = present + perPage;
     });
+    setState(() {});
   }
 
   Widget build(BuildContext context) {
@@ -56,13 +54,12 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
             return new ListView.builder(
                 controller: _scrollController,
                 itemExtent: 525,
-                itemCount: (present <= myList.length)
-                    ? items.length + 1
-                    : items.length,
+                itemCount: myList.length + 1,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == items.length) {
                     return CupertinoActivityIndicator();
                   }
+
                   return InkWell(
                     child: Container(
                       padding: EdgeInsets.only(top: 10, left: 5, right: 5),
@@ -172,7 +169,8 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                 new Container(
                                   width: 400,
                                   height: 200,
-                                  child: Image.asset("images/hinh3.png",
+                                  child: Image.network(
+                                      myData[index]['hinh_anh'],
                                       fit: BoxFit.fill),
                                 ),
                               ]),
