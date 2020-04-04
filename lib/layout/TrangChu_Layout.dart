@@ -1,9 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-// import 'package:loadmore/loadmore.dart';
-// import 'dart:async';
-
 import 'Chitiet_Layout_daxuly.dart';
 
 class TrangchuLayout extends StatefulWidget {
@@ -12,7 +9,7 @@ class TrangchuLayout extends StatefulWidget {
 }
 
 class _TrangchuLayoutState extends State<TrangchuLayout> {
-  List<String> myList;
+  List myList;
   ScrollController _scrollController = ScrollController();
   int _currentMax = 1;
   @override
@@ -32,7 +29,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
       myList.add("myData");
     }
     _currentMax = _currentMax + 1;
-    //setState(() {});
+    setState(() {});
   }
 
   Widget build(BuildContext context) {
@@ -40,15 +37,16 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
       body: Center(
         child: new FutureBuilder(
           builder: (context, snapshot) {
-            var myData = json.decode(snapshot.data.toString());
+            var myList = json.decode(snapshot.data.toString());
             return new ListView.builder(
                 controller: _scrollController,
                 itemExtent: 525,
-                itemCount: myData.length + 1,
+                itemCount: myList.length+1,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == myList.length) {
                     return CupertinoActivityIndicator();
                   }
+                  
                   return InkWell(
                     child: Container(
                       padding: EdgeInsets.only(top: 10, left: 5, right: 5),
@@ -69,7 +67,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                       Container(
                                         padding: EdgeInsets.only(top: 5),
                                         child: Text(
-                                          myData[index]['vi_tri'] + "  -  ",
+                                          myList[index]['vi_tri'] + "  -  ",
                                           style: TextStyle(color: Colors.grey),
                                         ),
                                       ),
@@ -81,7 +79,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                           padding: EdgeInsets.only(top: 5),
                                           child: Text(
                                             " " +
-                                                myData[index]
+                                                myList[index]
                                                     ['thoi_gian_xay_ra'],
                                             style:
                                                 TextStyle(color: Colors.grey),
@@ -90,7 +88,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         padding:
                                             EdgeInsets.only(top: 5, left: 32),
                                         child: Text(
-                                          myData[index]['tinh_trang_pa'],
+                                          myList[index]['tinh_trang_pa'],
                                           style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.blueAccent,
@@ -103,7 +101,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                 new Container(
                                     padding: EdgeInsets.only(left: 5, top: 5),
                                     child: Text(
-                                      myData[index]['noi_dung'],
+                                      myList[index]['noi_dung'],
                                       style: TextStyle(
                                         fontSize: 20,
                                       ),
@@ -123,7 +121,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: NetworkImage(
-                                                        myData[index]
+                                                        myList[index]
                                                             ['hinh_anh']),
                                                     fit: BoxFit.contain)),
                                           )
@@ -140,13 +138,13 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                               decoration: BoxDecoration(
                                                   image: DecorationImage(
                                                       image: NetworkImage(
-                                                          myData[index]
+                                                          myList[index]
                                                               ['hinh_anh']),
                                                       fit: BoxFit.contain)),
                                             ),
                                             Container(
                                               child: Image.network(
-                                                myData[index]['hinh_anh'],
+                                                myList[index]['hinh_anh'],
                                               ),
                                             ),
                                           ],
@@ -158,7 +156,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                 new Container(
                                   width: 400,
                                   height: 200,
-                                  child: Image.asset("images/hinh3.png",
+                                  child: Image.network(myList[index]['hinh_anh'],
                                       fit: BoxFit.fill),
                                 ),
                               ]),

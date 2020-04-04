@@ -51,6 +51,13 @@ class _ChitietState extends State<Chitiet> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return new Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          'Chi tiết phản ánh',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+        ),
+      ),
       body: Center(
         child: FutureBuilder(
           builder: (BuildContext context, snapshot) {
@@ -388,10 +395,10 @@ class _ChitietState extends State<Chitiet> {
                               // Khung chi tiết
                               Container(
                                 width: SizeConfig.blockSizeHorizontal * 100,
-                                height: SizeConfig.blockSizeVertical * 62,
-                                padding: EdgeInsets.only(
-                                  top: 20,
-                                ),
+                                height: SizeConfig.blockSizeVertical * 50,
+                                // padding: EdgeInsets.only(
+                                //   top: 20,
+                                // ),
                                 decoration: BoxDecoration(
                                     color: Colors.deepPurple,
                                     borderRadius: BorderRadius.circular(50),
