@@ -9,13 +9,13 @@ class TrangchuLayout extends StatefulWidget {
 }
 
 class _TrangchuLayoutState extends State<TrangchuLayout> {
-  List myList;
+  List<String> myList;
   ScrollController _scrollController = ScrollController();
   int _currentMax = 1;
   @override
   void initState() {
     super.initState();
-    myList = List.generate(2, (index) => "myData");
+    myList = List.generate(1, (index) => "myData");
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
@@ -37,7 +37,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
       body: Center(
         child: new FutureBuilder(
           builder: (context, snapshot) {
-            var myList = json.decode(snapshot.data.toString());
+            var myData = json.decode(snapshot.data.toString());
             return new ListView.builder(
                 controller: _scrollController,
                 itemExtent: 525,
@@ -67,7 +67,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                       Container(
                                         padding: EdgeInsets.only(top: 5),
                                         child: Text(
-                                          myList[index]['vi_tri'] + "  -  ",
+                                          myData[index]['vi_tri'] + "  -  ",
                                           style: TextStyle(color: Colors.grey),
                                         ),
                                       ),
@@ -79,7 +79,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                           padding: EdgeInsets.only(top: 5),
                                           child: Text(
                                             " " +
-                                                myList[index]
+                                                myData[index]
                                                     ['thoi_gian_xay_ra'],
                                             style:
                                                 TextStyle(color: Colors.grey),
@@ -88,7 +88,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         padding:
                                             EdgeInsets.only(top: 5, left: 32),
                                         child: Text(
-                                          myList[index]['tinh_trang_pa'],
+                                          myData[index]['tinh_trang_pa'],
                                           style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.blueAccent,
@@ -101,7 +101,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                 new Container(
                                     padding: EdgeInsets.only(left: 5, top: 5),
                                     child: Text(
-                                      myList[index]['noi_dung'],
+                                      myData[index]['noi_dung'],
                                       style: TextStyle(
                                         fontSize: 20,
                                       ),
@@ -121,7 +121,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: NetworkImage(
-                                                        myList[index]
+                                                        myData[index]
                                                             ['hinh_anh']),
                                                     fit: BoxFit.contain)),
                                           )
@@ -138,13 +138,13 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                               decoration: BoxDecoration(
                                                   image: DecorationImage(
                                                       image: NetworkImage(
-                                                          myList[index]
+                                                          myData[index]
                                                               ['hinh_anh']),
                                                       fit: BoxFit.contain)),
                                             ),
                                             Container(
                                               child: Image.network(
-                                                myList[index]['hinh_anh'],
+                                                myData[index]['hinh_anh'],
                                               ),
                                             ),
                                           ],
@@ -156,7 +156,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                 new Container(
                                   width: 400,
                                   height: 200,
-                                  child: Image.network(myList[index]['hinh_anh'],
+                                  child: Image.network(myData[index]['hinh_anh'],
                                       fit: BoxFit.fill),
                                 ),
                               ]),
