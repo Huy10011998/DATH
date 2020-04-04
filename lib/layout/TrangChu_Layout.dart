@@ -13,11 +13,15 @@ class TrangchuLayout extends StatefulWidget {
 
 class _TrangchuLayoutState extends State<TrangchuLayout> {
   List<String> myList;
+  List<String> items = List<String>();
+
   ScrollController _scrollController = ScrollController();
-  int _currentMax = 1;
+  int perPage = 10;
+  int present = 0;
   @override
   void initState() {
     super.initState();
+
     myList = List.generate(2, (index) => "myData");
     _scrollController.addListener(() {
       if (_scrollController.position.pixels ==
@@ -25,14 +29,22 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
         _getMoreData();
       }
     });
+
+    setState(() {
+      items.addAll(myList.getRange(present, present + perPage));
+      present = present + perPage;
+    });
   }
 
   _getMoreData() {
-    for (int i = _currentMax; i < _currentMax + 1; i++) {
-      myList.add("myData");
-    }
-    _currentMax = _currentMax + 1;
-    //setState(() {});
+    setState(() {
+      if ((present + perPage) > myList.length) {
+        items.addAll(myList.getRange(present, myList.length));
+      } else {
+        items.addAll(myList.getRange(present, present + perPage));
+      }
+      present = present + perPage;
+    });
   }
 
   Widget build(BuildContext context) {
@@ -44,9 +56,11 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
             return new ListView.builder(
                 controller: _scrollController,
                 itemExtent: 525,
-                itemCount: myData.length + 1,
+                itemCount: (present <= myList.length)
+                    ? items.length + 1
+                    : items.length,
                 itemBuilder: (BuildContext context, int index) {
-                  if (index == myList.length) {
+                  if (index == items.length) {
                     return CupertinoActivityIndicator();
                   }
                   return InkWell(
@@ -179,24 +193,3 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
     );
   }
 }
-
-// Future<bool> _loadMore() async {
-//   print("onLoadMore");
-//   await Future.delayed(Duration(seconds: 0, milliseconds: 10));
-//   //load();
-//   return true;
-// }
-
-// class Dashboard extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: InkWell(
-//         onTap: () {
-//           Navigator.pop(context);
-//         },
-//       ),
-//     );
-//   }
-// }
-// comment
