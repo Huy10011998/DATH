@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'Chitiet_Layout_daxuly.dart';
+import 'package:test1/layout/size_config.dart';
 
 class TrangchuLayout extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class TrangchuLayout extends StatefulWidget {
 class _TrangchuLayoutState extends State<TrangchuLayout> {
   final List<String> myList = List<String>.generate(6, (index) => "myData");
   List<String> items = List<String>();
-  int perPage = 2;
+  int perPage = 1;
   int present = 0;
 
   @override
@@ -38,6 +39,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
   }
 
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return new Scaffold(
       body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification scrollInfo) {
@@ -49,24 +51,23 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
         child: new FutureBuilder(
           builder: (context, snapshot) {
             final myData = json.decode(snapshot.data.toString());
-            log("myData length: ${myData.length}");
             return new ListView.builder(
                 itemCount: (present <= myList.length)
                     ? items.length + 1
                     : items.length,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == items.length)
-                    return Container(
-                      color: Colors.greenAccent,
-                      child: Text("Load More"),
-                    );
-                  else if (present == 6 + perPage)
-                    return Container(
-                      color: Colors.greenAccent,
-                      child: Text("Da het data"),
-                    );
-                  else
-                    return InkWell(
+                    return CupertinoActivityIndicator();
+                  // return Container(
+                  //   color: Colors.greenAccent,
+                  //   child: Text("Load More"),
+                  // );
+                  // else if (present == 6 + perPage)
+                  //   return Container(
+                  //     color: Colors.greenAccent,
+                  //     child: Text("Da het data"),
+                  //   );     
+                    return new InkWell(
                       child: Container(
                         padding: EdgeInsets.only(top: 10, left: 5, right: 5),
                         child: new Card(
@@ -127,56 +128,58 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         ),
                                       )),
                                   Container(
-                                    padding: EdgeInsets.only(top: 5),
+                                    margin: EdgeInsets.only(left: 10),
+                                    width: SizeConfig.screenHeight,
+                                    height: SizeConfig.screenWidth,
                                     child: Row(
                                       children: <Widget>[
-                                        Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: <Widget>[
-                                            Container(
-                                              margin: EdgeInsets.only(right: 5),
-                                              padding:
-                                                  EdgeInsets.only(left: 10),
-                                              width: 262,
-                                              height: 225,
-                                              decoration: BoxDecoration(
-                                                  image: DecorationImage(
-                                                      image: NetworkImage(
-                                                          myData[index]
-                                                              ['hinh_anh']),
-                                                      fit: BoxFit.contain)),
-                                            )
-                                          ],
-                                        ),
-                                        Expanded(
-                                            child: Container(
+                                        Container(
+                                          width:
+                                              SizeConfig.blockSizeHorizontal *
+                                                  60,
+                                          height:
+                                              SizeConfig.blockSizeVertical * 58,
                                           child: Column(
-                                            mainAxisSize: MainAxisSize.min,
+                                            children: <Widget>[
+                                              Image.network(
+                                                myData[index]['hinh_anh'],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 5.0),
+                                          width:
+                                              SizeConfig.safeBlockHorizontal *
+                                                  59,
+                                          height:
+                                              SizeConfig.safeBlockVertical * 67,
+                                          child: Column(
                                             children: <Widget>[
                                               Container(
-                                                width: 150,
-                                                height: 100,
-                                                decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                        image: NetworkImage(
-                                                            myData[index]
-                                                                ['hinh_anh']),
-                                                        fit: BoxFit.contain)),
+                                                margin: EdgeInsets.only(
+                                                    bottom: 3.0),
+                                                child: Image.network(
+                                                  myData[index]['hinh_anh'],
+                                                  fit: BoxFit.fill,
+                                                ),
                                               ),
                                               Container(
                                                 child: Image.network(
                                                   myData[index]['hinh_anh'],
+                                                  fit: BoxFit.fill,
                                                 ),
                                               ),
                                             ],
                                           ),
-                                        )),
+                                        ),
                                       ],
                                     ),
                                   ),
                                   new Container(
-                                    width: 400,
-                                    height: 200,
+                                    margin: EdgeInsets.only(bottom:5,left:5,right:5),
+                                    width: SizeConfig.screenHeight,
+                                    height: SizeConfig.screenWidth,
                                     child: Image.network(
                                         myData[index]['hinh_anh'],
                                         fit: BoxFit.fill),
