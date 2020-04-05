@@ -9,30 +9,23 @@ class TrangchuLayout extends StatefulWidget {
 }
 
 class _TrangchuLayoutState extends State<TrangchuLayout> {
-  final List<String> myList = List<String>.generate(6, (index) => "myData");
-  List<String> items = List<String>();
-  int perPage = 2;
-  int present = 0;
+  final List<String> myList = List<String>.generate(8, (index) => "myData");
+  List<String> items = List<String>.generate(2, (index) => "myData");
+  int present = 2;
   bool isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      items.addAll(myList.getRange(present, present + perPage));
-      present = present + perPage;
-    });
   }
 
   Future _getMoreData() async {
     await new Future.delayed(new Duration(seconds: 1));
     setState(() {
-      if ((present + perPage) > myList.length) {
-        items.addAll(myList.getRange(present, myList.length));
-      } else {
-        items.addAll(myList.getRange(present, present + perPage));
+      if (present < myList.length) {
+        items.addAll(myList.getRange(present, present + 1));
       }
-      present = present + perPage;
+      present++;
       isLoading = false;
     });
   }
@@ -66,11 +59,6 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                         child: Center(
                           child: new CircularProgressIndicator(),
                         ));
-                  if (index > items.length)
-                    return Container(
-                      color: Colors.greenAccent,
-                      child: Text("Da het data"),
-                    );
                   return new InkWell(
                     child: Container(
                       padding: EdgeInsets.only(top: 10, left: 5, right: 5),
