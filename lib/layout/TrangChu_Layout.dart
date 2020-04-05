@@ -1,8 +1,6 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'Chitiet_Layout_daxuly.dart';
 
 class TrangchuLayout extends StatefulWidget {
   @override
@@ -10,7 +8,7 @@ class TrangchuLayout extends StatefulWidget {
 }
 
 class _TrangchuLayoutState extends State<TrangchuLayout> {
-  final List<String> myList = List<String>.generate(6, (index) => "myData");
+  final List<String> myList = List<String>.generate(7, (index) => "");
   List<String> items = List<String>();
   int perPage = 2;
   int present = 0;
@@ -33,8 +31,6 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
       }
       present = present + perPage;
     });
-
-    log("present: $present");
   }
 
   Widget build(BuildContext context) {
@@ -49,7 +45,6 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
         child: new FutureBuilder(
           builder: (context, snapshot) {
             final myData = json.decode(snapshot.data.toString());
-            log("myData length: ${myData.length}");
             return new ListView.builder(
                 itemCount: (present <= myList.length)
                     ? items.length + 1
@@ -59,11 +54,6 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                     return Container(
                       color: Colors.greenAccent,
                       child: Text("Load More"),
-                    );
-                  else if (present == 6 + perPage)
-                    return Container(
-                      color: Colors.greenAccent,
-                      child: Text("Da het data"),
                     );
                   else
                     return InkWell(
@@ -186,9 +176,8 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                         ),
                       ),
                       onTap: () {
-                        Route route = MaterialPageRoute(
-                            builder: (BuildContext context) => Chitiet());
-                        Navigator.push(context, route);
+                        Navigator.pushNamed(context, '/detail',
+                            arguments: index);
                       },
                     );
                 });

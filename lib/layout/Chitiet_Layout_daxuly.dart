@@ -32,20 +32,6 @@ class _ChitietState extends State<Chitiet> {
       }
     });
   }
-  /*int _current = 0;
-  List imgList = [
-    "https://images.pexels.com/photos/443446/pexels-photo-443446.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/592077/pexels-photo-592077.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/1598073/pexels-photo-1598073.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  ];
-
-  List<Widget> map<Widget>(List list, Function handler) {
-    List<Widget> result = [];
-    for (var i = 0; i < list.length; i++) {
-      result.add(handler(i, list[i]));
-    }
-    return result;
-  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +52,10 @@ class _ChitietState extends State<Chitiet> {
               child: ListView.builder(
                   shrinkWrap: true,
                   physics: ScrollPhysics(),
-                  itemCount: myData1.length,
+                  itemCount: 1,
                   itemBuilder: (BuildContext context, int index) {
+                    final currentIndex =
+                        ModalRoute.of(context).settings.arguments;
                     return Container(
                       child: new Card(
                         child: Container(
@@ -97,11 +85,11 @@ class _ChitietState extends State<Chitiet> {
                                                         38,
                                                     child: BeforeAfter(
                                                       beforeImage:
-                                                          Image.network(
-                                                              myData1[index]
-                                                                  ['hinh_anh']),
+                                                          Image.network(myData1[
+                                                                  currentIndex]
+                                                              ['hinh_anh']),
                                                       afterImage: Image.network(
-                                                          myData1[index]
+                                                          myData1[currentIndex]
                                                               ['hinh_anh']),
                                                       imageHeight: SizeConfig
                                                               .safeBlockVertical *
@@ -133,11 +121,11 @@ class _ChitietState extends State<Chitiet> {
                                                         38,
                                                     child: BeforeAfter(
                                                       beforeImage:
-                                                          Image.network(
-                                                              myData1[index]
-                                                                  ['hinh_anh']),
+                                                          Image.network(myData1[
+                                                                  currentIndex]
+                                                              ['hinh_anh']),
                                                       afterImage: Image.network(
-                                                          myData1[index]
+                                                          myData1[currentIndex]
                                                               ['hinh_anh']),
                                                       imageHeight: SizeConfig
                                                               .safeBlockVertical *
@@ -169,11 +157,11 @@ class _ChitietState extends State<Chitiet> {
                                                         38,
                                                     child: BeforeAfter(
                                                       beforeImage:
-                                                          Image.network(
-                                                              myData1[index]
-                                                                  ['hinh_anh']),
+                                                          Image.network(myData1[
+                                                                  currentIndex]
+                                                              ['hinh_anh']),
                                                       afterImage: Image.network(
-                                                          myData1[index]
+                                                          myData1[currentIndex]
                                                               ['hinh_anh']),
                                                       imageHeight: SizeConfig
                                                               .safeBlockVertical *
@@ -205,11 +193,11 @@ class _ChitietState extends State<Chitiet> {
                                                         38,
                                                     child: BeforeAfter(
                                                       beforeImage:
-                                                          Image.network(
-                                                              myData1[index]
-                                                                  ['hinh_anh']),
+                                                          Image.network(myData1[
+                                                                  currentIndex]
+                                                              ['hinh_anh']),
                                                       afterImage: Image.network(
-                                                          myData1[index]
+                                                          myData1[currentIndex]
                                                               ['hinh_anh']),
                                                       imageHeight: SizeConfig
                                                               .safeBlockVertical *
@@ -412,7 +400,7 @@ class _ChitietState extends State<Chitiet> {
                                           children: <Widget>[
                                             // Mô tả chi tiết
                                             Text(
-                                              myData1[index]['noi_dung'],
+                                              myData1[currentIndex]['noi_dung'],
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 16),
@@ -431,7 +419,8 @@ class _ChitietState extends State<Chitiet> {
                                                   width: 5,
                                                 ),
                                                 Text(
-                                                  myData1[index]['vi_tri'],
+                                                  myData1[currentIndex]
+                                                      ['vi_tri'],
                                                   style: TextStyle(
                                                       color: Colors.white54,
                                                       fontSize: 15),
@@ -449,7 +438,7 @@ class _ChitietState extends State<Chitiet> {
                                                   width: 5,
                                                 ),
                                                 Text(
-                                                  myData1[index]
+                                                  myData1[currentIndex]
                                                       ['thoi_gian_xay_ra'],
                                                   style: TextStyle(
                                                       color: Colors.white54,
@@ -489,7 +478,7 @@ class _ChitietState extends State<Chitiet> {
                                                         width: 90,
                                                       ),
                                                       Text(
-                                                        myData1[index]
+                                                        myData1[currentIndex]
                                                             ['chu_de'],
                                                         style: TextStyle(
                                                             color: Colors.white,
@@ -510,7 +499,7 @@ class _ChitietState extends State<Chitiet> {
                                                         width: 50,
                                                       ),
                                                       Text(
-                                                        myData1[index]
+                                                        myData1[currentIndex]
                                                             ['ma_phan_anh'],
                                                         style: TextStyle(
                                                             color: Colors.white,
@@ -531,7 +520,7 @@ class _ChitietState extends State<Chitiet> {
                                                         width: 10,
                                                       ),
                                                       Text(
-                                                        myData1[index][
+                                                        myData1[currentIndex][
                                                             'thoi_gian_tao_pa'],
                                                         style: TextStyle(
                                                             color: Colors.white,
@@ -571,7 +560,8 @@ class _ChitietState extends State<Chitiet> {
                                                         FontWeight.bold),
                                               ),
                                               Text(
-                                                myData1[index]['tinh_trang_pa'],
+                                                myData1[currentIndex]
+                                                    ['tinh_trang_pa'],
                                                 style: TextStyle(
                                                     color: Colors.blue,
                                                     fontSize: 17,
