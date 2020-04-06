@@ -13,7 +13,6 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
   List<String> items = List<String>.generate(2, (index) => "myData");
   int present = 2;
   bool isLoading = false;
-
   @override
   void initState() {
     super.initState();
@@ -53,12 +52,14 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                     : items.length,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == items.length)
+                  {
                     return Container(
                         height: isLoading ? 50.0 : 0,
                         color: Colors.transparent,
                         child: Center(
                           child: new CircularProgressIndicator(),
                         ));
+                  }
                   return new InkWell(
                     child: Container(
                       padding: EdgeInsets.only(top: 10, left: 5, right: 5),
