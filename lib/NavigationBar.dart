@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test1/layout/TrangChu_Layout.dart';
 //import 'package:test1/layout/Chitiet_Layout_daxuly.dart';
-//import 'package:demo_trangchu/layout/Chitiet_Layout.dart';
-
-//import 'package:demo_trangchu/layout/Theodoi_Layout.dart';
+import 'package:test1/layout/Tatcaphananh_Layout.dart';
 
 class NavigationBar extends StatefulWidget {
   @override
@@ -18,8 +16,9 @@ class _NavigationBarState extends State<NavigationBar> {
       case 0:
         return TrangchuLayout();
         break;
-      // case 2:
-      //   return Chitiet();
+      case 2:
+        return Tatcaphananh();
+        break;
       default:
         return TrangchuLayout();
     }
@@ -104,7 +103,7 @@ class _NavigationBarState extends State<NavigationBar> {
             ),
             backgroundColor: Colors.deepPurple,
             title: Text(
-              "Đang theo dõi",
+              "Tất cả phản ánh",
               style: TextStyle(
                 fontSize: 14,
               ),

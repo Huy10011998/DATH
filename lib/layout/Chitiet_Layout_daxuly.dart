@@ -35,7 +35,7 @@ class _ChitietState extends State<Chitiet> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    SizeConfig1().init(context);
     return new Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
@@ -77,10 +77,10 @@ class _ChitietState extends State<Chitiet> {
                                                 new Expanded(
                                                   flex: 1,
                                                   child: new Container(
-                                                    width: SizeConfig
+                                                    width: SizeConfig1
                                                             .blockSizeHorizontal *
                                                         38,
-                                                    height: SizeConfig
+                                                    height: SizeConfig1
                                                             .blockSizeVertical *
                                                         38,
                                                     child: BeforeAfter(
@@ -91,10 +91,10 @@ class _ChitietState extends State<Chitiet> {
                                                       afterImage: Image.network(
                                                           myData1[currentIndex]
                                                               ['hinh_anh']),
-                                                      imageHeight: SizeConfig
+                                                      imageHeight: SizeConfig1
                                                               .safeBlockVertical *
                                                           40,
-                                                      imageWidth: SizeConfig
+                                                      imageWidth: SizeConfig1
                                                               .safeBlockHorizontal *
                                                           85,
                                                       imageCornerRadius: 0,
@@ -113,10 +113,10 @@ class _ChitietState extends State<Chitiet> {
                                                 new Expanded(
                                                   flex: 1,
                                                   child: new Container(
-                                                    width: SizeConfig
+                                                    width: SizeConfig1
                                                             .blockSizeHorizontal *
                                                         38,
-                                                    height: SizeConfig
+                                                    height: SizeConfig1
                                                             .blockSizeVertical *
                                                         38,
                                                     child: BeforeAfter(
@@ -127,10 +127,10 @@ class _ChitietState extends State<Chitiet> {
                                                       afterImage: Image.network(
                                                           myData1[currentIndex]
                                                               ['hinh_anh']),
-                                                      imageHeight: SizeConfig
+                                                      imageHeight: SizeConfig1
                                                               .safeBlockVertical *
                                                           40,
-                                                      imageWidth: SizeConfig
+                                                      imageWidth: SizeConfig1
                                                               .safeBlockHorizontal *
                                                           85,
                                                       imageCornerRadius: 0,
@@ -149,10 +149,10 @@ class _ChitietState extends State<Chitiet> {
                                                 new Expanded(
                                                   flex: 1,
                                                   child: new Container(
-                                                    width: SizeConfig
+                                                    width: SizeConfig1
                                                             .blockSizeHorizontal *
                                                         38,
-                                                    height: SizeConfig
+                                                    height: SizeConfig1
                                                             .blockSizeVertical *
                                                         38,
                                                     child: BeforeAfter(
@@ -163,10 +163,10 @@ class _ChitietState extends State<Chitiet> {
                                                       afterImage: Image.network(
                                                           myData1[currentIndex]
                                                               ['hinh_anh']),
-                                                      imageHeight: SizeConfig
+                                                      imageHeight: SizeConfig1
                                                               .safeBlockVertical *
                                                           40,
-                                                      imageWidth: SizeConfig
+                                                      imageWidth: SizeConfig1
                                                               .safeBlockHorizontal *
                                                           85,
                                                       imageCornerRadius: 0,
@@ -185,10 +185,10 @@ class _ChitietState extends State<Chitiet> {
                                                 new Expanded(
                                                   flex: 1,
                                                   child: new Container(
-                                                    width: SizeConfig
+                                                    width: SizeConfig1
                                                             .blockSizeHorizontal *
                                                         38,
-                                                    height: SizeConfig
+                                                    height: SizeConfig1
                                                             .blockSizeVertical *
                                                         38,
                                                     child: BeforeAfter(
@@ -199,10 +199,10 @@ class _ChitietState extends State<Chitiet> {
                                                       afterImage: Image.network(
                                                           myData1[currentIndex]
                                                               ['hinh_anh']),
-                                                      imageHeight: SizeConfig
+                                                      imageHeight: SizeConfig1
                                                               .safeBlockVertical *
                                                           40,
-                                                      imageWidth: SizeConfig
+                                                      imageWidth: SizeConfig1
                                                               .safeBlockHorizontal *
                                                           85,
                                                       imageCornerRadius: 0,
@@ -229,9 +229,9 @@ class _ChitietState extends State<Chitiet> {
                                       },
                                       child: new Container(
                                         width:
-                                            SizeConfig.blockSizeHorizontal * 16,
+                                            SizeConfig1.blockSizeHorizontal * 16,
                                         height:
-                                            SizeConfig.blockSizeVertical * 16,
+                                            SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
                                         child: new Column(
                                           children: <Widget>[
@@ -269,9 +269,9 @@ class _ChitietState extends State<Chitiet> {
                                       },
                                       child: new Container(
                                         width:
-                                            SizeConfig.blockSizeHorizontal * 16,
+                                            SizeConfig1.blockSizeHorizontal * 16,
                                         height:
-                                            SizeConfig.blockSizeVertical * 16,
+                                            SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
                                         child: new Column(
                                           children: <Widget>[
@@ -309,9 +309,9 @@ class _ChitietState extends State<Chitiet> {
                                       },
                                       child: new Container(
                                         width:
-                                            SizeConfig.blockSizeHorizontal * 16,
+                                            SizeConfig1.blockSizeHorizontal * 16,
                                         height:
-                                            SizeConfig.blockSizeVertical * 16,
+                                            SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
                                         child: new Column(
                                           children: <Widget>[
@@ -349,9 +349,9 @@ class _ChitietState extends State<Chitiet> {
                                       },
                                       child: new Container(
                                         width:
-                                            SizeConfig.blockSizeHorizontal * 16,
+                                            SizeConfig1.blockSizeHorizontal * 16,
                                         height:
-                                            SizeConfig.blockSizeVertical * 16,
+                                            SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
                                         child: new Column(
                                           children: <Widget>[
@@ -382,8 +382,8 @@ class _ChitietState extends State<Chitiet> {
 
                               // Khung chi tiết
                               Container(
-                                width: SizeConfig.blockSizeHorizontal * 100,
-                                height: SizeConfig.blockSizeVertical * 50,
+                                width: SizeConfig1.blockSizeHorizontal * 100,
+                                height: SizeConfig1.blockSizeVertical * 50,
                                 // padding: EdgeInsets.only(
                                 //   top: 20,
                                 // ),

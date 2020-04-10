@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:test1/layout/size_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TrangchuLayout extends StatefulWidget {
   @override
@@ -9,10 +10,11 @@ class TrangchuLayout extends StatefulWidget {
 }
 
 class _TrangchuLayoutState extends State<TrangchuLayout> {
-  final List<String> myList = List<String>.generate(8, (index) => "myData");
-  List<String> items = List<String>.generate(2, (index) => "myData");
+  // final List<String> myList = List<String>.generate(4, (i) => "myData");
+  List<String> items = List<String>.generate(2, (i) => "myData");
   int present = 2;
   bool isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -21,8 +23,8 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
   Future _getMoreData() async {
     await new Future.delayed(new Duration(seconds: 1));
     setState(() {
-      if (present < myList.length) {
-        items.addAll(myList.getRange(present, present + 1));
+      if (present < 8) {
+        items.addAll({""});
       }
       present++;
       isLoading = false;
@@ -30,6 +32,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
   }
 
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, width: 1080, height: 1920, allowFontScaling: true);
     SizeConfig().init(context);
     return new Scaffold(
       body: NotificationListener<ScrollNotification>(
@@ -47,14 +50,11 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
           builder: (context, snapshot) {
             final myData = json.decode(snapshot.data.toString());
             return new ListView.builder(
-                itemCount: (present <= myList.length)
-                    ? items.length + 1
-                    : items.length,
+                itemCount: (present <= 8) ? items.length + 1 : items.length,
                 itemBuilder: (BuildContext context, int index) {
-                  if (index == items.length)
-                  {
+                  if (index == items.length) {
                     return Container(
-                        height: isLoading ? 50.0 : 0,
+                        height: isLoading ? 40.0 : 0,
                         color: Colors.transparent,
                         child: Center(
                           child: new CircularProgressIndicator(),
@@ -69,16 +69,15 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Container(
+                                  padding: EdgeInsets.only(top: 5),
                                   child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
                                     children: <Widget>[
                                       Icon(
                                         Icons.place,
                                         color: Colors.grey,
                                       ),
                                       Container(
-                                        padding: EdgeInsets.only(top: 5),
                                         child: Text(
                                           myData[index]['vi_tri'] + "  -  ",
                                           style: TextStyle(color: Colors.grey),
@@ -89,23 +88,22 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         color: Colors.grey,
                                       ),
                                       Container(
-                                          padding: EdgeInsets.only(top: 5),
                                           child: Text(
-                                            " " +
-                                                myData[index]
-                                                    ['thoi_gian_xay_ra'],
-                                            style:
-                                                TextStyle(color: Colors.grey),
-                                          )),
+                                        " " + myData[index]['thoi_gian_xay_ra'],
+                                        style: TextStyle(color: Colors.grey),
+                                      )),
+                                      SizedBox(
+                                        width: 30,
+                                      ),
                                       Container(
-                                        padding:
-                                            EdgeInsets.only(top: 5, left: 32),
-                                        child: Text(
-                                          myData[index]['tinh_trang_pa'],
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.blueAccent,
-                                              fontWeight: FontWeight.bold),
+                                        child: Container(
+                                          child: Text(
+                                            myData[index]['tinh_trang_pa'],
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.blueAccent,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ),
                                     ],

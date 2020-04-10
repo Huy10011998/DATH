@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:test1/NavigationBar.dart';
 import 'package:test1/layout/Chitiet_Layout_daxuly.dart';
+import 'package:test1/layout/Tatcaphananh_Layout.dart';
 import 'package:test1/layout/TrangChu_Layout.dart';
-
 void main() => runApp((MyApp()));
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     return new MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue),
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/home': (context) => TrangchuLayout(),
-          '/detail': (context) => Chitiet()
+          '/detail': (context) => Chitiet(),
+          
         });
   }
 }
