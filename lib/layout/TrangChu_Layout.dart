@@ -5,6 +5,8 @@ import 'package:test1/layout/size_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TrangchuLayout extends StatefulWidget {
+  final String title;
+  TrangchuLayout([Key key, this.title]):super(key: key);
   @override
   _TrangchuLayoutState createState() => _TrangchuLayoutState();
 }

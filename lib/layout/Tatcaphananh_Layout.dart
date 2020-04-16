@@ -5,7 +5,9 @@ import 'package:test1/layout/size_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Tatcaphananh extends StatefulWidget {
-  @override
+  final String title;
+  Tatcaphananh([Key key,this.title]): super(key:key);
+   @override
   _TatcaphananhState createState() => _TatcaphananhState();
 }
 
