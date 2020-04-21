@@ -26,7 +26,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
     await new Future.delayed(new Duration(seconds: 1));
     setState(() {
       if (present < 8) {
-        items.add("MyData");
+        items.add("myData");
       }
       present++;
       isLoading = false;
@@ -114,21 +114,25 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                       padding: EdgeInsets.only(top: 10, left: 15, right: 15),
                       child: new Card(
                         child: Container(
-                          child: new Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          child: new Column(children: <Widget>[
+                            Container(
+                                child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Container(
-                                  padding: EdgeInsets.only(top: 5, left: 7),
+                                  padding: EdgeInsets.only(top:10,left: 10),
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Icon(
                                         Icons.place,
                                         color: Colors.grey,
                                       ),
                                       Container(
+                                        padding: EdgeInsets.only(top:5),
                                         child: Text(
-                                          myData[index]['vi_tri'] + "  -  ",
+                                          myData[index]['vi_tri'] + " ",
                                           style: TextStyle(color: Colors.grey),
                                         ),
                                       ),
@@ -137,93 +141,154 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         color: Colors.grey,
                                       ),
                                       Container(
+                                        padding: EdgeInsets.only(top:5),
                                           child: Text(
-                                        " " + myData[index]['thoi_gian_xay_ra'],
+                                        " " + myData[index]['thoi_gian_tao_pa'],
                                         style: TextStyle(color: Colors.grey),
                                       )),
-                                      SizedBox(
-                                        width: 5,
-                                      ),
-                                      Container(
-                                        child: Container(
-                                          child: Text(
-                                            myData[index]['tinh_trang_pa'],
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.blueAccent,
-                                                fontWeight: FontWeight.bold),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(top:10,right: 10),
+                                    child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: <Widget>[
+                                      myData[index]['tinh_trang_pa'] == '1'
+                                          ? Container(
+                                              child: Text(
+                                                'Đã xử lí',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.orange,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            )
+                                          : myData[index]['tinh_trang_pa'] ==
+                                                  '2'
+                                              ? Container(
+                                                  child: Text(
+                                                    'Đang xử lí',
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: Colors.green,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                )
+                                              : myData[index]
+                                                          ['tinh_trang_pa'] ==
+                                                      '3'
+                                                  ? Container(
+                                                      child: Text(
+                                                        'Xử lí lại',
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            color: Colors.red,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    )
+                                                  : myData[index][
+                                                              'tinh_trang_pa'] ==
+                                                          '4'
+                                                      ? Container(
+                                                          child: Text(
+                                                            'Đợi xử lí',
+                                                            style: TextStyle(
+                                                                fontSize: 15,
+                                                                color:
+                                                                    Colors.blue,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        )
+                                                      : myData[index][
+                                                                  'tinh_trang_pa'] ==
+                                                              '5'
+                                                          ? Container(
+                                                              child: Text(
+                                                                'Phản ánh ảo',
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        15,
+                                                                    color: Colors
+                                                                        .grey,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            )
+                                                          : Container(),
+                                    ])),
+                              ],
+                            )),
+                            new Container(
+                                padding: EdgeInsets.only(left: 10.0, top: 10.0),
+                                child: Text(
+                                  myData[index]['noi_dung'],
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                )),
+                            Container(
+                              padding: EdgeInsets.only(
+                                  top: 20.0, right: 10.0, left: 10),
+                              width: SizeConfig.screenHeight,
+                              height: SizeConfig.screenWidth,
+                              child: Row(
+                                children: <Widget>[
+                                  Container(
+                                    width: SizeConfig.blockSizeHorizontal * 62,
+                                    height: SizeConfig.blockSizeVertical * 60,
+                                    child: Column(
+                                      children: <Widget>[
+                                        Image.network(
+                                          myData[index]['hinh_anh'],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 5.0),
+                                    width: SizeConfig.safeBlockHorizontal * 55,
+                                    height: SizeConfig.safeBlockVertical * 65,
+                                    child: Column(
+                                      children: <Widget>[
+                                        Container(
+                                          margin: EdgeInsets.only(bottom: 3.0),
+                                          child: Image.network(
+                                            myData[index]['hinh_anh'],
+                                            fit: BoxFit.fill,
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                new Container(
-                                    padding: EdgeInsets.only(left: 10.0, top: 10.0),
-                                    child: Text(
-                                      myData[index]['noi_dung'],
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                      ),
-                                    )),
-                                Container(
-                                  padding: EdgeInsets.only(top:20.0,right: 10.0,left: 10),
-                                  width: SizeConfig.screenHeight,
-                                  height: SizeConfig.screenWidth,
-                                  child: Row(
-                                    children: <Widget>[
-                                      Container(
-                                        width:
-                                            SizeConfig.blockSizeHorizontal * 62,
-                                        height:
-                                            SizeConfig.blockSizeVertical * 60,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Image.network(
-                                              myData[index]['hinh_anh'],
-                                            ),
-                                          ],
+                                        Container(
+                                          child: Image.network(
+                                            myData[index]['hinh_anh'],
+                                            fit: BoxFit.fill,
+                                          ),
                                         ),
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.only(left: 5.0),
-                                        width:
-                                            SizeConfig.safeBlockHorizontal * 55,
-                                        height:
-                                            SizeConfig.safeBlockVertical * 65,
-                                        child: Column(
-                                          children: <Widget>[
-                                            Container(
-                                              margin:
-                                                  EdgeInsets.only(bottom: 3.0),
-                                              child: Image.network(
-                                                myData[index]['hinh_anh'],
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Image.network(
-                                                myData[index]['hinh_anh'],
-                                                fit: BoxFit.fill,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
+                                ],
+                              ),
+                            ),
 
-                                // new Container(
-                                //   margin: EdgeInsets.only(
-                                //       bottom: 5, left: 5, right: 5),
-                                //   width: SizeConfig.screenHeight,
-                                //   height: SizeConfig.screenWidth,
-                                //   child: Image.network(
-                                //       myData[index]['hinh_anh'],
-                                //       fit: BoxFit.fill),
-                                // ),
-                              ]),
+                            // new Container(
+                            //   margin: EdgeInsets.only(
+                            //       bottom: 5, left: 5, right: 5),
+                            //   width: SizeConfig.screenHeight,
+                            //   height: SizeConfig.screenWidth,
+                            //   child: Image.network(
+                            //       myData[index]['hinh_anh'],
+                            //       fit: BoxFit.fill),
+                            // ),
+                          ]),
                         ),
                       ),
                     ),

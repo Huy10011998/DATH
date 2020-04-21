@@ -13,7 +13,7 @@ class Tatcaphananh extends StatefulWidget {
 
 class _TatcaphananhState extends State<Tatcaphananh> {
   List<String> items = List<String>.generate(5, (i) => "myData");
-  int present = 1;
+  int present = 2;
   bool isLoading = false;
 
   @override
@@ -170,7 +170,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                     child: Text(
                                       'Đang xử lí',
                                       style: TextStyle(
-                                          fontSize: 15, color: Colors.orange),
+                                          fontSize: 15, color: Colors.orange,fontWeight: FontWeight.bold),
                                     ),
                                   )
                                 : myData[index]['tinh_trang_xu_ly'] == '2'
@@ -179,7 +179,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                           'Đợi phản hồi',
                                           style: TextStyle(
                                               fontSize: 15,
-                                              color: Colors.green),
+                                              color: Colors.green,fontWeight: FontWeight.bold),
                                         ),
                                       )
                                     : myData[index]['tinh_trang_xu_ly'] == '3'
@@ -188,7 +188,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                               'Xử lí lại',
                                               style: TextStyle(
                                                   fontSize: 15,
-                                                  color: Colors.red),
+                                                  color: Colors.red,fontWeight: FontWeight.bold),
                                             ),
                                           )
                                         : myData[index]['tinh_trang_xu_ly'] ==
@@ -198,7 +198,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                   'Đợi xử lí',
                                                   style: TextStyle(
                                                       fontSize: 15,
-                                                      color: Colors.blue),
+                                                      color: Colors.blue,fontWeight: FontWeight.bold),
                                                 ),
                                               )
                                             : myData[index]
@@ -209,7 +209,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                       'Phản ánh ảo',
                                                       style: TextStyle(
                                                           fontSize: 15,
-                                                          color: Colors.grey),
+                                                          color: Colors.grey,fontWeight: FontWeight.bold),
                                                     ),
                                                   )
                                                 : Container(),
