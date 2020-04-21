@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.deepPurple),
-        home: Tralaiphananh(),  //gọi màn hình đầu tiên ở chổ này
+        home: NavigationBar(),  //gọi màn hình đầu tiên ở chổ này
         initialRoute: '/',
         routes: {
           '/home': (context) => TrangchuLayout(),

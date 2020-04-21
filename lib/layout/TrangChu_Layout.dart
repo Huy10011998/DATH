@@ -6,14 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TrangchuLayout extends StatefulWidget {
   final String title;
-  TrangchuLayout([Key key, this.title]):super(key: key);
+  TrangchuLayout([Key key, this.title]) : super(key: key);
   @override
   _TrangchuLayoutState createState() => _TrangchuLayoutState();
 }
 
 class _TrangchuLayoutState extends State<TrangchuLayout> {
   // final List<String> myList = List<String>.generate(4, (i) => "myData");
-  List<String> items = List<String>.generate(2, (i) => "myData");
+  List<String> items = List<String>.generate(3, (i) => "myData");
   int present = 2;
   bool isLoading = false;
 
@@ -26,7 +26,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
     await new Future.delayed(new Duration(seconds: 1));
     setState(() {
       if (present < 8) {
-        items.addAll({""});
+        items.add("MyData");
       }
       present++;
       isLoading = false;
@@ -37,6 +37,53 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
     ScreenUtil.init(context, width: 1080, height: 1920, allowFontScaling: true);
     SizeConfig().init(context);
     return new Scaffold(
+      appBar: AppBar(
+        title: Container(
+          // decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //         image: AssetImage('images/bg.png'), fit: BoxFit.fill)),
+          child: Stack(
+              overflow: Overflow.visible,
+              alignment: AlignmentDirectional.center,
+              children: <Widget>[
+                Positioned(
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: 85,
+                        height: 85,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: AssetImage("images/hinh9.png"))),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              "Cổng phản ánh",
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              "Nhanh chóng - Tiện lợi - Bảo mật",
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w300),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ]),
+        ),
+      ),
       body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification scrollInfo) {
           if (!isLoading &&
@@ -64,14 +111,14 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                   }
                   return new InkWell(
                     child: Container(
-                      padding: EdgeInsets.only(top: 10, left: 5, right: 5),
+                      padding: EdgeInsets.only(top: 10, left: 15, right: 15),
                       child: new Card(
                         child: Container(
                           child: new Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Container(
-                                  padding: EdgeInsets.only(top: 5),
+                                  padding: EdgeInsets.only(top: 5, left: 7),
                                   child: Row(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: <Widget>[
@@ -95,7 +142,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         style: TextStyle(color: Colors.grey),
                                       )),
                                       SizedBox(
-                                        width: 30,
+                                        width: 5,
                                       ),
                                       Container(
                                         child: Container(
@@ -112,7 +159,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                   ),
                                 ),
                                 new Container(
-                                    padding: EdgeInsets.only(left: 5, top: 5),
+                                    padding: EdgeInsets.only(left: 10.0, top: 10.0),
                                     child: Text(
                                       myData[index]['noi_dung'],
                                       style: TextStyle(
@@ -120,16 +167,16 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                       ),
                                     )),
                                 Container(
-                                  margin: EdgeInsets.only(left: 10),
+                                  padding: EdgeInsets.only(top:20.0,right: 10.0,left: 10),
                                   width: SizeConfig.screenHeight,
                                   height: SizeConfig.screenWidth,
                                   child: Row(
                                     children: <Widget>[
                                       Container(
                                         width:
-                                            SizeConfig.blockSizeHorizontal * 60,
+                                            SizeConfig.blockSizeHorizontal * 62,
                                         height:
-                                            SizeConfig.blockSizeVertical * 58,
+                                            SizeConfig.blockSizeVertical * 60,
                                         child: Column(
                                           children: <Widget>[
                                             Image.network(
@@ -141,9 +188,9 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                       Container(
                                         margin: EdgeInsets.only(left: 5.0),
                                         width:
-                                            SizeConfig.safeBlockHorizontal * 59,
+                                            SizeConfig.safeBlockHorizontal * 55,
                                         height:
-                                            SizeConfig.safeBlockVertical * 67,
+                                            SizeConfig.safeBlockVertical * 65,
                                         child: Column(
                                           children: <Widget>[
                                             Container(
@@ -166,15 +213,16 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                     ],
                                   ),
                                 ),
-                                new Container(
-                                  margin: EdgeInsets.only(
-                                      bottom: 5, left: 5, right: 5),
-                                  width: SizeConfig.screenHeight,
-                                  height: SizeConfig.screenWidth,
-                                  child: Image.network(
-                                      myData[index]['hinh_anh'],
-                                      fit: BoxFit.fill),
-                                ),
+
+                                // new Container(
+                                //   margin: EdgeInsets.only(
+                                //       bottom: 5, left: 5, right: 5),
+                                //   width: SizeConfig.screenHeight,
+                                //   height: SizeConfig.screenWidth,
+                                //   child: Image.network(
+                                //       myData[index]['hinh_anh'],
+                                //       fit: BoxFit.fill),
+                                // ),
                               ]),
                         ),
                       ),

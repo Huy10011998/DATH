@@ -21,7 +21,7 @@ dependencies:
   intl: ^0.15.7
   loadmore: ^1.0.4
   flutter_screenutil: ^1.0.2
-  
+  flutter_svg: ^0.17.1 
   flutter:
     sdk: flutter
 
@@ -48,12 +48,19 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - aaa.json
+    - bbb.json
     - images/hinh1.png
     - images/hinh2.png
     - images/hinh3.png
     - images/hinh4.png
     - images/hinh5.png
     - images/hinh6.png
+    - images/hinh7.png
+    - images/hinh8.png
+    - images/hinh9.png
+    - images/bg.svg
+    - images/bg.png
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

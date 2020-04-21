@@ -16,8 +16,8 @@ class SizeConfig {
     _mediaQueryData = MediaQuery.of(context);
     screenWidth = _mediaQueryData.size.width * 0.5;
     screenHeight = _mediaQueryData.size.height * 0.5;
-    blockSizeHorizontal = screenWidth / 50;
-    blockSizeVertical = screenHeight / 50;
+    blockSizeHorizontal = screenWidth / 55;
+    blockSizeVertical = screenHeight / 55;
     _safeAreaHorizontal =
         _mediaQueryData.padding.left + _mediaQueryData.padding.right;
     _safeAreaVertical =
