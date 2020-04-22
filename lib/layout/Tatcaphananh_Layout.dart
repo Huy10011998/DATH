@@ -186,18 +186,6 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                                   Colors.blue)),
                                                     ),
                                                   )
-<<<<<<< HEAD
-                                                : Container(),
-                            myData[index]['tinh_trang_xu_ly'] == '1'
-                                ? Container(
-                                    child: Text(
-                                      'Đang xử lí',
-                                      style: TextStyle(
-                                          fontSize: 15, color: Colors.orange,fontWeight: FontWeight.bold),
-                                    ),
-                                  )
-                                : myData[index]['tinh_trang_xu_ly'] == '2'
-=======
                                                 : myData[index][
                                                             'tinh_trang_xu_ly'] ==
                                                         '5'
@@ -217,44 +205,35 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                       )
                                                     : Container(),
                                 myData[index]['tinh_trang_xu_ly'] == '1'
->>>>>>> 9a548d0a2e20ba54b97e14d0b3326ca03f7648b0
                                     ? Container(
                                         child: Text(
                                           'Đang xử lí',
                                           style: TextStyle(
                                               fontSize: 15,
-<<<<<<< HEAD
-                                              color: Colors.green,fontWeight: FontWeight.bold),
-=======
-                                              color: Colors.orange),
->>>>>>> 9a548d0a2e20ba54b97e14d0b3326ca03f7648b0
+                                              color: Colors.orange,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       )
                                     : myData[index]['tinh_trang_xu_ly'] == '2'
                                         ? Container(
                                             child: Text(
-                                              'Đợi phản hồi',
+                                              'Đang xử lí',
                                               style: TextStyle(
                                                   fontSize: 15,
-<<<<<<< HEAD
-                                                  color: Colors.red,fontWeight: FontWeight.bold),
-=======
-                                                  color: Colors.green),
->>>>>>> 9a548d0a2e20ba54b97e14d0b3326ca03f7648b0
+                                                  color: Colors.green,
+                                                  fontWeight: FontWeight.bold),
                                             ),
                                           )
                                         : myData[index]['tinh_trang_xu_ly'] ==
                                                 '3'
                                             ? Container(
                                                 child: Text(
-                                                  'Xử lí lại',
+                                                  'Đợi phản hồi',
                                                   style: TextStyle(
                                                       fontSize: 15,
-<<<<<<< HEAD
-                                                      color: Colors.blue,fontWeight: FontWeight.bold),
-=======
-                                                      color: Colors.red),
->>>>>>> 9a548d0a2e20ba54b97e14d0b3326ca03f7648b0
+                                                      color: Colors.red,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
                                               )
                                             : myData[index]
@@ -262,14 +241,12 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                     '4'
                                                 ? Container(
                                                     child: Text(
-                                                      'Đợi xử lí',
+                                                      'Xử lí lại',
                                                       style: TextStyle(
                                                           fontSize: 15,
-<<<<<<< HEAD
-                                                          color: Colors.grey,fontWeight: FontWeight.bold),
-=======
-                                                          color: Colors.blue),
->>>>>>> 9a548d0a2e20ba54b97e14d0b3326ca03f7648b0
+                                                          color: Colors.blue,
+                                                          fontWeight:
+                                                              FontWeight.bold),
                                                     ),
                                                   )
                                                 : myData[index][
@@ -277,11 +254,14 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                         '5'
                                                     ? Container(
                                                         child: Text(
-                                                          'Phản ánh ảo',
+                                                          'Đợi xử lí',
                                                           style: TextStyle(
                                                               fontSize: 15,
                                                               color:
-                                                                  Colors.grey),
+                                                                  Colors.grey,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
                                                         ),
                                                       )
                                                     : Container(),

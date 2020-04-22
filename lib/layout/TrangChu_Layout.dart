@@ -120,7 +120,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Container(
-                                  padding: EdgeInsets.only(top:10,left: 10),
+                                  padding: EdgeInsets.only(top: 10, left: 10),
                                   child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -130,7 +130,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         color: Colors.grey,
                                       ),
                                       Container(
-                                        padding: EdgeInsets.only(top:5),
+                                        padding: EdgeInsets.only(top: 5),
                                         child: Text(
                                           myData[index]['vi_tri'] + " ",
                                           style: TextStyle(color: Colors.grey),
@@ -141,52 +141,44 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                         color: Colors.grey,
                                       ),
                                       Container(
-                                        padding: EdgeInsets.only(top:5),
+                                          padding: EdgeInsets.only(top: 5),
                                           child: Text(
-                                        " " + myData[index]['thoi_gian_tao_pa'],
-                                        style: TextStyle(color: Colors.grey),
-                                      )),
+                                            " " +
+                                                myData[index]
+                                                    ['thoi_gian_tao_pa'],
+                                            style:
+                                                TextStyle(color: Colors.grey),
+                                          )),
                                     ],
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.only(top:10,right: 10),
+                                    padding:
+                                        EdgeInsets.only(top: 10, right: 10),
                                     child: Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: <Widget>[
-                                      myData[index]['tinh_trang_pa'] == '1'
-                                          ? Container(
-                                              child: Text(
-                                                'Đã xử lí',
-                                                style: TextStyle(
-                                                    fontSize: 15,
-                                                    color: Colors.orange,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
-                                            )
-                                          : myData[index]['tinh_trang_pa'] ==
-                                                  '2'
+                                          myData[index]['tinh_trang_pa'] == '1'
                                               ? Container(
                                                   child: Text(
-                                                    'Đang xử lí',
+                                                    'Đã xử lí',
                                                     style: TextStyle(
                                                         fontSize: 15,
-                                                        color: Colors.green,
+                                                        color: Colors.orange,
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),
                                                 )
                                               : myData[index]
                                                           ['tinh_trang_pa'] ==
-                                                      '3'
+                                                      '2'
                                                   ? Container(
                                                       child: Text(
-                                                        'Xử lí lại',
+                                                        'Đang xử lí',
                                                         style: TextStyle(
                                                             fontSize: 15,
-                                                            color: Colors.red,
+                                                            color: Colors.green,
                                                             fontWeight:
                                                                 FontWeight
                                                                     .bold),
@@ -194,14 +186,14 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                                     )
                                                   : myData[index][
                                                               'tinh_trang_pa'] ==
-                                                          '4'
+                                                          '3'
                                                       ? Container(
                                                           child: Text(
-                                                            'Đợi xử lí',
+                                                            'Xử lí lại',
                                                             style: TextStyle(
                                                                 fontSize: 15,
                                                                 color:
-                                                                    Colors.blue,
+                                                                    Colors.red,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold),
@@ -209,22 +201,37 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                                         )
                                                       : myData[index][
                                                                   'tinh_trang_pa'] ==
-                                                              '5'
+                                                              '4'
                                                           ? Container(
                                                               child: Text(
-                                                                'Phản ánh ảo',
+                                                                'Đợi xử lí',
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         15,
                                                                     color: Colors
-                                                                        .grey,
+                                                                        .blue,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold),
                                                               ),
                                                             )
-                                                          : Container(),
-                                    ])),
+                                                          : myData[index][
+                                                                      'tinh_trang_pa'] ==
+                                                                  '5'
+                                                              ? Container(
+                                                                  child: Text(
+                                                                    'Phản ánh ảo',
+                                                                    style: TextStyle(
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .grey,
+                                                                        fontWeight:
+                                                                            FontWeight.bold),
+                                                                  ),
+                                                                )
+                                                              : Container(),
+                                        ])),
                               ],
                             )),
                             new Container(

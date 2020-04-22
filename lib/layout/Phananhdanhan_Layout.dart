@@ -76,147 +76,149 @@ class _PhananhdanhanState extends State<Phananhdanhan> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                myData[index]['tinh_trang_xu_ly'] == '1'
-                                    ? Container(
-                                        padding: EdgeInsets.only(bottom: 5),
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                          border: Border(
-                                              top: BorderSide(
-                                                  width: 2,
-                                                  color: Colors.orange)),
-                                        ),
-                                      )
-                                    : myData[index]['tinh_trang_xu_ly'] == '2'
-                                        ? Container(
-                                            padding: EdgeInsets.only(bottom: 5),
-                                            width: 50,
-                                            decoration: BoxDecoration(
-                                              border: Border(
-                                                  top: BorderSide(
-                                                      width: 2,
-                                                      color: Colors.green)),
-                                            ),
-                                          )
-                                        : myData[index]['tinh_trang_xu_ly'] ==
-                                                '3'
-                                            ? Container(
-                                                padding:
-                                                    EdgeInsets.only(bottom: 5),
-                                                width: 50,
-                                                decoration: BoxDecoration(
-                                                  border: Border(
-                                                      top: BorderSide(
-                                                          width: 2,
-                                                          color: Colors.red)),
-                                                ),
-                                              )
-                                            : myData[index]
-                                                        ['tinh_trang_xu_ly'] ==
-                                                    '4'
-                                                ? Container(
-                                                    padding: EdgeInsets.only(
-                                                        bottom: 5),
-                                                    width: 50,
-                                                    decoration: BoxDecoration(
-                                                      border: Border(
-                                                          top: BorderSide(
-                                                              width: 2,
-                                                              color:
-                                                                  Colors.blue)),
-                                                    ),
-                                                  )
-                                                : myData[index][
-                                                            'tinh_trang_xu_ly'] ==
-                                                        '5'
-                                                    ? Container(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                bottom: 5),
-                                                        width: 50,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border(
-                                                              top: BorderSide(
-                                                                  width: 2,
-                                                                  color: Colors
-                                                                      .grey)),
-                                                        ),
-                                                      )
-                                                    : Container(),
                                 Container(
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: <Widget>[
-                                        Container(
-                                          padding: EdgeInsets.only(top: 5),
-                                          child: myData[index]
-                                                      ['tinh_trang_xu_ly'] ==
-                                                  '1'
+                                  child: myData[index]['tinh_trang_xu_ly'] ==
+                                          '1'
+                                      ? Container(
+                                          padding: EdgeInsets.only(bottom: 5),
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                            border: Border(
+                                                top: BorderSide(
+                                                    width: 2,
+                                                    color: Colors.orange)),
+                                          ),
+                                        )
+                                      : myData[index]['tinh_trang_xu_ly'] == '2'
+                                          ? Container(
+                                              padding:
+                                                  EdgeInsets.only(bottom: 5),
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                border: Border(
+                                                    top: BorderSide(
+                                                        width: 2,
+                                                        color: Colors.green)),
+                                              ),
+                                            )
+                                          : myData[index]['tinh_trang_xu_ly'] ==
+                                                  '3'
                                               ? Container(
-                                                  child: Text(
-                                                    'Đang xử lí',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.orange),
+                                                  padding: EdgeInsets.only(
+                                                      bottom: 5),
+                                                  width: 50,
+                                                  decoration: BoxDecoration(
+                                                    border: Border(
+                                                        top: BorderSide(
+                                                            width: 2,
+                                                            color: Colors.red)),
                                                   ),
                                                 )
                                               : myData[index][
                                                           'tinh_trang_xu_ly'] ==
-                                                      '2'
+                                                      '4'
                                                   ? Container(
-                                                      child: Text(
-                                                        'Đợi phản hồi',
-                                                        style: TextStyle(
-                                                            fontSize: 15,
-                                                            color:
-                                                                Colors.green),
+                                                      padding: EdgeInsets.only(
+                                                          bottom: 5),
+                                                      width: 50,
+                                                      decoration: BoxDecoration(
+                                                        border: Border(
+                                                            top: BorderSide(
+                                                                width: 2,
+                                                                color: Colors
+                                                                    .blue)),
                                                       ),
                                                     )
                                                   : myData[index][
                                                               'tinh_trang_xu_ly'] ==
-                                                          '3'
+                                                          '5'
+                                                      ? Container(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  bottom: 5),
+                                                          width: 50,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            border: Border(
+                                                                top: BorderSide(
+                                                                    width: 2,
+                                                                    color: Colors
+                                                                        .grey)),
+                                                          ),
+                                                        )
+                                                      : Container(),
+                                ),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                    Container(
+                                      padding: EdgeInsets.only(top: 5),
+                                      child: myData[index]
+                                                  ['tinh_trang_xu_ly'] ==
+                                              '1'
+                                          ? Container(
+                                              child: Text(
+                                                'Đang xử lí',
+                                                style: TextStyle(
+                                                    fontSize: 15,
+                                                    color: Colors.orange),
+                                              ),
+                                            )
+                                          : myData[index]['tinh_trang_xu_ly'] ==
+                                                  '2'
+                                              ? Container(
+                                                  child: Text(
+                                                    'Đợi phản hồi',
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: Colors.green),
+                                                  ),
+                                                )
+                                              : myData[index][
+                                                          'tinh_trang_xu_ly'] ==
+                                                      '3'
+                                                  ? Container(
+                                                      child: Text(
+                                                        'Xử lí lại',
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            color: Colors.red),
+                                                      ),
+                                                    )
+                                                  : myData[index][
+                                                              'tinh_trang_xu_ly'] ==
+                                                          '4'
                                                       ? Container(
                                                           child: Text(
-                                                            'Xử lí lại',
+                                                            'Đợi xử lí',
                                                             style: TextStyle(
                                                                 fontSize: 15,
-                                                                color:
-                                                                    Colors.red),
+                                                                color: Colors
+                                                                    .blue),
                                                           ),
                                                         )
                                                       : myData[index][
                                                                   'tinh_trang_xu_ly'] ==
-                                                              '4'
+                                                              '5'
                                                           ? Container(
                                                               child: Text(
-                                                                'Đợi xử lí',
+                                                                'Phản ánh ảo',
                                                                 style: TextStyle(
                                                                     fontSize:
                                                                         15,
                                                                     color: Colors
-                                                                        .blue),
+                                                                        .grey),
                                                               ),
                                                             )
-                                                          : myData[index][
-                                                                      'tinh_trang_xu_ly'] ==
-                                                                  '5'
-                                                              ? Container(
-                                                                  child: Text(
-                                                                    'Phản ánh ảo',
-                                                                    style: TextStyle(
-                                                                        fontSize:
-                                                                            15,
-                                                                        color: Colors
-                                                                            .grey),
-                                                                  ),
-                                                                )
-                                                              : Container(),
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.only(top: 6),
-                                          child: Row(children: <Widget>[
+                                                          : Container(),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(top: 6),
+                                      child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.end,
+                                          children: <Widget>[
                                             new Text(
                                               'còn lại: ',
                                               style: TextStyle(
@@ -231,8 +233,8 @@ class _PhananhdanhanState extends State<Phananhdanhan> {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                           ]),
-                                        ),
-                                      ]),
+                                    ),
+                                  ]),
                                 ),
                                 Container(
                                   height: 65,
