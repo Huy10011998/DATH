@@ -15,7 +15,8 @@ class TrangchuLayout extends StatefulWidget {
 class _TrangchuLayoutState extends State<TrangchuLayout> {
   final url =
       'http://apidemo.lamgigio.net/cong-phan-anh/100/api/phan-anh/danh-sach';
-  List<String> items = List<String>.generate(3, (i) => "myData");
+  // List<String> items = List<String>.generate(3, (i) => "myData");
+  int count = 2;
   int present = 2;
   bool isLoading = false;
   double scroll;
@@ -62,7 +63,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
     await new Future.delayed(new Duration(seconds: 1));
     setState(() {
       if (present < total) {
-        items.add("");
+        count++;
       }
       present++;
       isLoading = false;
@@ -150,17 +151,12 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
             child: FutureBuilder<List<Result>>(
               future: fetchAlbum(),
               builder: (context, snapshot) {
-                // print("items: " + items.length.toString());
                 List<Result> myData = snapshot.data ?? [];
                 return ListView.builder(
-                    itemCount:
-                        (present <= total) ? items.length + 1 : items.length,
+                    itemCount: (present < total) ? count + 1 : total,
                     itemBuilder: (BuildContext context, int index) {
-                      print("total: " + total.toString());
-                      print("index: " + index.toString());
-                      print("items: " + items.length.toString());
                       Result album = myData[index];
-                      if (index == items.length) {
+                      if (index == present) {
                         return Container(
                             height: isLoading ? 40.0 : 0,
                             color: Colors.transparent,
