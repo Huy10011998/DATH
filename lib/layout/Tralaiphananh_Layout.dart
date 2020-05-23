@@ -148,7 +148,9 @@ class _TralaiphananhState extends State<Tralaiphananh> {
                     ]),
                 decoration: new BoxDecoration(
                   color: Theme.of(context).canvasColor,
-                  borderRadius: new BorderRadius.circular(25),
+                  borderRadius: new BorderRadius.only(
+                    topLeft:  const  Radius.circular(25.0),
+                    topRight: const  Radius.circular(25.0))
                 ),
               ),
             );

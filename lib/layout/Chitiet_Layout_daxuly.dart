@@ -228,8 +228,8 @@ class _ChitietState extends State<Chitiet> {
                                         _changed(false, "four");
                                       },
                                       child: new Container(
-                                        width:
-                                            SizeConfig1.blockSizeHorizontal * 16,
+                                        width: SizeConfig1.blockSizeHorizontal *
+                                            16,
                                         height:
                                             SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
@@ -268,8 +268,8 @@ class _ChitietState extends State<Chitiet> {
                                         _changed(false, "four");
                                       },
                                       child: new Container(
-                                        width:
-                                            SizeConfig1.blockSizeHorizontal * 16,
+                                        width: SizeConfig1.blockSizeHorizontal *
+                                            16,
                                         height:
                                             SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
@@ -308,8 +308,8 @@ class _ChitietState extends State<Chitiet> {
                                         _changed(false, "four");
                                       },
                                       child: new Container(
-                                        width:
-                                            SizeConfig1.blockSizeHorizontal * 16,
+                                        width: SizeConfig1.blockSizeHorizontal *
+                                            16,
                                         height:
                                             SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
@@ -348,8 +348,8 @@ class _ChitietState extends State<Chitiet> {
                                         _changed(false, "two");
                                       },
                                       child: new Container(
-                                        width:
-                                            SizeConfig1.blockSizeHorizontal * 16,
+                                        width: SizeConfig1.blockSizeHorizontal *
+                                            16,
                                         height:
                                             SizeConfig1.blockSizeVertical * 16,
                                         margin: new EdgeInsets.only(top: 8.0),
@@ -559,15 +559,69 @@ class _ChitietState extends State<Chitiet> {
                                                     fontWeight:
                                                         FontWeight.bold),
                                               ),
-                                              Text(
-                                                myData1[currentIndex]
-                                                    ['tinh_trang_pa'],
-                                                style: TextStyle(
-                                                    color: Colors.blue,
-                                                    fontSize: 17,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                              ),
+                                              myData1[currentIndex]
+                                                          ['tinh_trang_pa'] ==
+                                                      '1'
+                                                  ? Container(
+                                                      child: Text(
+                                                        'Đã xử lí',
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            color:
+                                                                Colors.orange,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    )
+                                                  : myData1[currentIndex][
+                                                              'tinh_trang_pa'] ==
+                                                          '2'
+                                                      ? Container(
+                                                          child: Text(
+                                                            'Đang xử lí',
+                                                            style: TextStyle(
+                                                                fontSize: 15,
+                                                                color: Colors
+                                                                    .green,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        )
+                                                      : myData1[currentIndex][
+                                                                  'tinh_trang_pa'] ==
+                                                              '3'
+                                                          ? Container(
+                                                              child: Text(
+                                                                'Xử lí lại',
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        15,
+                                                                    color: Colors
+                                                                        .red,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            )
+                                                          : myData1[currentIndex]
+                                                                      [
+                                                                      'tinh_trang_pa'] ==
+                                                                  '4'
+                                                              ? Container(
+                                                                  child: Text(
+                                                                    'Đợi xử lí',
+                                                                    style: TextStyle(
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .blue,
+                                                                        fontWeight:
+                                                                            FontWeight.bold),
+                                                                  ),
+                                                                )
+                                                              : Container(),
                                             ],
                                           ),
                                           SizedBox(

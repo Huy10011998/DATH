@@ -21,7 +21,8 @@ dependencies:
   intl: ^0.15.7
   loadmore: ^1.0.4
   flutter_screenutil: ^1.0.2
-  flutter_svg: ^0.17.1 
+  flutter_svg: ^0.17.1
+  http: ^0.12.1
   flutter:
     sdk: flutter
 
@@ -60,6 +61,8 @@ flutter:
     - images/hinh9.png
     - images/bg.svg
     - images/bg.png
+    - images/hinh10.png
+    - images/hinh12.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

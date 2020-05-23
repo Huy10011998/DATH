@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:test1/layout/size_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,22 +14,35 @@ class Tatcaphananh extends StatefulWidget {
 
 class _TatcaphananhState extends State<Tatcaphananh> {
   List<String> items = List<String>.generate(5, (i) => "myData");
-  int present = 2;
+  int present = 5;
   bool isLoading = false;
   double scroll;
+  int total = 0;
 
   @override
   void initState() {
     super.initState();
     setState(() {
-      scroll = 100.0;
+      scroll = 75.0;
     });
+
+    getData().then((value) {
+      setState(() {
+        total = int.parse(value);
+      });
+    });
+  }
+
+  Future getData() async {
+    String distancesText = await rootBundle.loadString('assets/bbb.json');
+    final distances = json.decode(distancesText);
+    return distances.length.toString();
   }
 
   Future _getMoreData() async {
     await new Future.delayed(new Duration(seconds: 1));
     setState(() {
-      if (present < 8) {
+      if (present < total) {
         items.add('myData');
       }
       present++;
@@ -82,6 +96,9 @@ class _TatcaphananhState extends State<Tatcaphananh> {
             ),
           ),
         ),
+        Container(
+          child: Column(),
+        ),
         Positioned(
             child: AnimatedPadding(
           curve: Curves.easeInOut,
@@ -90,17 +107,19 @@ class _TatcaphananhState extends State<Tatcaphananh> {
           child: NotificationListener<ScrollNotification>(
             onNotification: (ScrollNotification scrollInfor) {
               if (scrollInfor.metrics.pixels > 50) {
-                print(scrollInfor.metrics.pixels);
                 setState(() {
                   scroll = 0;
                 });
               }
-
+              if (scrollInfor.metrics.pixels > 50) {
+                setState(() {
+                  scroll = 0;
+                });
+              }
               if (scrollInfor.metrics.pixels ==
                   scrollInfor.metrics.minScrollExtent) {
-                print("cuon xuong: " + scroll.toString());
                 setState(() {
-                  scroll = 100.0;
+                  scroll = 75.0;
                 });
               }
 
@@ -118,7 +137,8 @@ class _TatcaphananhState extends State<Tatcaphananh> {
               builder: (context, snapshot) {
                 final myData = json.decode(snapshot.data.toString());
                 return new ListView.builder(
-                  itemCount: (present <= 8) ? items.length + 1 : items.length,
+                  itemCount:
+                      (present <= total) ? items.length + 1 : items.length,
                   itemBuilder: (BuildContext context, int index) {
                     if (items.length == index) {
                       return Container(
@@ -132,9 +152,11 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                         child: new Card(
                             child: new Row(children: <Widget>[
                           new Container(
-                            padding: EdgeInsets.only(left: 15),
+                            width: 260,
+                            padding: EdgeInsets.only(left: 15, right: 10),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 myData[index]['tinh_trang_xu_ly'] == '1'
                                     ? Container(
@@ -143,7 +165,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                         decoration: BoxDecoration(
                                           border: Border(
                                               top: BorderSide(
-                                                  width: 2,
+                                                  width: 3,
                                                   color: Colors.orange)),
                                         ),
                                       )
@@ -154,7 +176,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                             decoration: BoxDecoration(
                                               border: Border(
                                                   top: BorderSide(
-                                                      width: 2,
+                                                      width: 3,
                                                       color: Colors.green)),
                                             ),
                                           )
@@ -167,7 +189,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                 decoration: BoxDecoration(
                                                   border: Border(
                                                       top: BorderSide(
-                                                          width: 2,
+                                                          width: 3,
                                                           color: Colors.red)),
                                                 ),
                                               )
@@ -181,7 +203,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                     decoration: BoxDecoration(
                                                       border: Border(
                                                           top: BorderSide(
-                                                              width: 2,
+                                                              width: 3,
                                                               color:
                                                                   Colors.blue)),
                                                     ),
@@ -198,75 +220,128 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                                                             BoxDecoration(
                                                           border: Border(
                                                               top: BorderSide(
-                                                                  width: 2,
+                                                                  width: 3,
                                                                   color: Colors
                                                                       .grey)),
                                                         ),
                                                       )
                                                     : Container(),
-                                myData[index]['tinh_trang_xu_ly'] == '1'
-                                    ? Container(
-                                        child: Text(
-                                          'Đang xử lí',
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.orange,
-                                              fontWeight: FontWeight.bold),
+                                Container(
+                                  child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Container(
+                                          padding: EdgeInsets.only(top: 10),
+                                          child: myData[index]
+                                                      ['tinh_trang_xu_ly'] ==
+                                                  '1'
+                                              ? Container(
+                                                  child: Text(
+                                                    'Đang xử lí',
+                                                    style: TextStyle(
+                                                        fontSize: 15,
+                                                        color: Colors.orange,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                )
+                                              : myData[index][
+                                                          'tinh_trang_xu_ly'] ==
+                                                      '2'
+                                                  ? Container(
+                                                      child: Text(
+                                                        'Đang xử lí',
+                                                        style: TextStyle(
+                                                            fontSize: 15,
+                                                            color: Colors.green,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      ),
+                                                    )
+                                                  : myData[index][
+                                                              'tinh_trang_xu_ly'] ==
+                                                          '3'
+                                                      ? Container(
+                                                          child: Text(
+                                                            'Đợi phản hồi',
+                                                            style: TextStyle(
+                                                                fontSize: 15,
+                                                                color:
+                                                                    Colors.red,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        )
+                                                      : myData[index][
+                                                                  'tinh_trang_xu_ly'] ==
+                                                              '4'
+                                                          ? Container(
+                                                              child: Text(
+                                                                'Xử lí lại',
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        15,
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            )
+                                                          : myData[index][
+                                                                      'tinh_trang_xu_ly'] ==
+                                                                  '5'
+                                                              ? Container(
+                                                                  child: Text(
+                                                                    'Đợi xử lí',
+                                                                    style: TextStyle(
+                                                                        fontSize:
+                                                                            15,
+                                                                        color: Colors
+                                                                            .grey,
+                                                                        fontWeight:
+                                                                            FontWeight.bold),
+                                                                  ),
+                                                                )
+                                                              : Container(),
                                         ),
-                                      )
-                                    : myData[index]['tinh_trang_xu_ly'] == '2'
-                                        ? Container(
-                                            child: Text(
-                                              'Đang xử lí',
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.green,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          )
-                                        : myData[index]['tinh_trang_xu_ly'] ==
-                                                '3'
-                                            ? Container(
+                                        Container(
+                                            padding: EdgeInsets.only(
+                                                top: 2, right: 30),
+                                            child: Row(children: <Widget>[
+                                              Container(
+                                                width: 30,
+                                                height: 30,
+                                                decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                    image: DecorationImage(
+                                                        fit: BoxFit.fill,
+                                                        image: NetworkImage(
+                                                            myData[index]
+                                                                ['hinh_anh']))),
+                                              ),
+                                              Container(
+                                                padding:
+                                                    EdgeInsets.only(top: 2),
                                                 child: Text(
-                                                  'Đợi phản hồi',
+                                                  myData[index]
+                                                      ['nguoi_tra_loi'],
                                                   style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.red,
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
                                               )
-                                            : myData[index]
-                                                        ['tinh_trang_xu_ly'] ==
-                                                    '4'
-                                                ? Container(
-                                                    child: Text(
-                                                      'Xử lí lại',
-                                                      style: TextStyle(
-                                                          fontSize: 15,
-                                                          color: Colors.blue,
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                  )
-                                                : myData[index][
-                                                            'tinh_trang_xu_ly'] ==
-                                                        '5'
-                                                    ? Container(
-                                                        child: Text(
-                                                          'Đợi xử lí',
-                                                          style: TextStyle(
-                                                              fontSize: 15,
-                                                              color:
-                                                                  Colors.grey,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                      )
-                                                    : Container(),
+                                            ])),
+                                      ]),
+                                ),
                                 Container(
-                                  height: 75,
+                                  height: 65,
                                   width: 250,
                                   padding: EdgeInsets.only(top: 10),
                                   child: Text(
@@ -313,7 +388,7 @@ class _TatcaphananhState extends State<Tatcaphananh> {
                           ),
                           new Container(
                             padding:
-                                EdgeInsets.only(right: 10, top: 10, bottom: 10),
+                                EdgeInsets.only(right: 10, top: 10, bottom: 5),
                             width: 100,
                             height: 120,
                             child: Column(

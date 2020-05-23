@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:test1/NavigationBar.dart';
+import 'package:test1/layout/Album.dart';
 import 'package:test1/layout/Chitiet_Layout_daxuly.dart';
+import 'package:test1/layout/Phananhdanhan_Rong_Layout.dart';
+import 'package:test1/layout/Tatcaphananh_Layout.dart';
 import 'package:test1/layout/Tralaiphananh_Layout.dart';
 import 'package:test1/layout/TrangChu_Layout.dart';
 
