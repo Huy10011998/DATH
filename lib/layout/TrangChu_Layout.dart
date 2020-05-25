@@ -16,8 +16,8 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
   final url =
       'http://apidemo.lamgigio.net/cong-phan-anh/100/api/phan-anh/danh-sach';
   // List<String> items = List<String>.generate(3, (i) => "myData");
-  int count = 2;
-  int present = 2;
+  int count = 3;
+  int present = 3;
   bool isLoading = false;
   double scroll;
   int total = 0;
@@ -276,9 +276,8 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                   ],
                                 )),
                                 Container(
-                                    margin:
+                                    padding:
                                         EdgeInsets.only(left: 15.0, top: 10.0),
-                                    child: Align(
                                         child: Container(
                                             alignment: Alignment.topLeft,
                                             child: Text(
@@ -286,7 +285,7 @@ class _TrangchuLayoutState extends State<TrangchuLayout> {
                                               style: TextStyle(
                                                 fontSize: 20,
                                               ),
-                                            )))),
+                                            ))),
                                 Container(
                                   padding: EdgeInsets.only(
                                       top: 20.0, right: 10.0, left: 10),
